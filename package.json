@@ -1,0 +1,37 @@
+{
+  "name": "text-match",
+  "version": "0.0.0",
+  "description": "Match words, numbers and dates in text",
+  "keywords": [
+    "match",
+    "text",
+    "document",
+    "word",
+    "number",
+    "date"
+  ],
+  "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
+  "homepage": "https://github.com/mantoni/text-match.js",
+  "main": "lib/text-match.js",
+  "scripts": {
+    "lint": "eslint .",
+    "watch": "mocha --watch",
+    "test": "mocha",
+    "posttest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mantoni/text-match.js.git"
+  },
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "mocha": "^3.0.2"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "CHANGES.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
+}

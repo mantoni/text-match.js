@@ -63,6 +63,16 @@ describe('default-expression', () => {
     assert.equal(v.three.toISOString(), '2016-09-12T22:00:00.000Z');
   });
 
+  it('handles non-matching DATE', () => {
+    const match = tm.matcher({
+      failing: 'No match ${DATE}'
+    });
+
+    const v = match('Something without any dates in it');
+
+    assert.equal(v, null);
+  });
+
   it('matches multiline string', () => {
     const match = tm.matcher({
       test: 'some ${WORDS}'

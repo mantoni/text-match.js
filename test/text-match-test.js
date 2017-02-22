@@ -137,4 +137,14 @@ describe('matcher', () => {
     });
   });
 
+  it('matches plain text without expression', () => {
+    const match = tm.matcher({
+      test: 'some text'
+    });
+
+    const v = match('here is some text for you');
+
+    assert.deepEqual(v, { test: 'some text' });
+  });
+
 });

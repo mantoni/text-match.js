@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.4
+
+🐛 Recognize June 25 , 2016 as a valid date (note the blanks)
+
 ## 1.0.3
 
 🐛 Match plain text without expression

@@ -63,4 +63,16 @@ describe('default-expression', () => {
     assert.equal(v.three.toISOString(), '2016-09-12T22:00:00.000Z');
   });
 
+  it('matches multiline string', () => {
+    const match = tm.matcher({
+      test: 'some ${WORDS}'
+    });
+
+    const v = match(`Multiple line
+      with some words to match
+      yo!`);
+
+    assert.equal(v.test, 'words to match');
+  });
+
 });

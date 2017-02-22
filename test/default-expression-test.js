@@ -93,6 +93,16 @@ describe('default-expression', () => {
     assert.equal(v.date.toISOString(), '2016-06-24T22:00:00.000Z');
   });
 
+  it('matches YYYY-MM-DD DATE', () => {
+    const match = tm.matcher({
+      date: 'Date: ${DATE}'
+    });
+
+    const v = match('   Date: 2016-06-25 is the date');
+
+    assert.equal(v.date.toISOString(), '2016-06-24T22:00:00.000Z');
+  });
+
   it('matches multiline string', () => {
     const match = tm.matcher({
       test: 'some ${WORDS}'

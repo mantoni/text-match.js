@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.5
+
+🐛 Recognize 2016-06-25 as a valid date
+
 ## 1.0.4
 
 🐛 Recognize June 25 , 2016 as a valid date (note the blanks)

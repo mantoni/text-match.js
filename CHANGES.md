@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.2
+
+🐛 Recognize June 25, 2016 as a valid date
+
 ## 1.0.1
 
 🐛 Handle non-matching `DATE` expression

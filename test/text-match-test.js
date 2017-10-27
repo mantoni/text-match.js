@@ -116,6 +116,56 @@ describe('matcher', () => {
     });
   });
 
+  it('returns matcher result', () => {
+    const match = tm.matcher({
+      test: 'That ${FOO}!'
+    }, {
+      expressions: {
+        FOO: tm.expression(/(Foo)/, () => 'Bar')
+      }
+    });
+
+    const v = match('That Foo!');
+
+    assert.deepEqual(v, { test: 'Bar' });
+  });
+
+  it('invokes given expression handler function with next match', () => {
+    const spy = sinon.spy();
+    const match = tm.matcher({
+      test: 'That ${FOO}'
+    }, {
+      expressions: {
+        FOO: tm.expression(/(Foo)/, spy)
+      }
+    });
+
+    match('That Foo and That Foo too');
+
+    sinon.assert.calledTwice(spy);
+    sinon.assert.alwaysCalledWithMatch(spy, {
+      0: 'That Foo',
+      1: 'Foo'
+    });
+  });
+
+  it('returns second matcher invocation result', () => {
+    let i = 0;
+    const match = tm.matcher({
+      test: 'That ${FOO}'
+    }, {
+      expressions: {
+        FOO: tm.expression(/(Foo)/, () => {
+          return i++ ? 'Bar' : null;
+        })
+      }
+    });
+
+    const v = match('That Foo and That Foo too');
+
+    assert.deepEqual(v, { test: 'Bar' });
+  });
+
   it('invokes given expression handler function with merged configs', () => {
     const spy = sinon.spy();
     const match = tm.matcher({

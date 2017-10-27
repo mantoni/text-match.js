@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.6
+
+🐛 Match remaining text if matcher return `null`
+
 ## 1.0.5
 
 🐛 Recognize 2016-06-25 as a valid date
